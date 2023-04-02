@@ -1,0 +1,32 @@
+			.mi_cont {
+				border: 0px solid green;
+			}
+
+			.mi_row {
+				border: 0px solid red;
+			}
+
+			.mi_col {
+				border: 0px solid #1512de;
+			}
+
+			.mi_td {
+				border: 0px solid rgb(212, 212, 212);
+				text-align: center;
+				vertical-align: middle; 
+			}
+
+			.mi_tabla
+			{
+				border: 1px solid rgb(99, 198, 0);
+				padding-top: 50px;
+				padding-right: 30px;
+				padding-bottom: 50px;
+				padding-left: 20px;
+			}
+
+			.mi_scrollable_div
+			{
+				overflow: scroll;
+				height: 450px;
+			}
