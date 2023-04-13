@@ -26,13 +26,13 @@
 		<title>Sistema de Informes</title>
 	</head>
 <body>
-	<div class = "container mi_cont">
+	<div class = "container my_cont">
 
 		<?php include 'includes/header.php'; ?>
 		<?php include 'includes/navBar.php'; ?>
 		
-		<div class = "row justify-content-center mi_row">
-			<div class = "col-6 mi_col">
+		<div class = "row justify-content-center my_row">
+			<div class = "col-6 my_col">
 				<!-- (row_!Centro!) -->
 					<table class="table">
                         <h1>Employee</h1>
@@ -40,8 +40,8 @@
 			</div>
 		</div>
 
-		<div class = "row justify-content-center mi_row">
-			<div class="col-6 justify-content-center mi_col bg-secondary text-white">
+		<div class = "row justify-content-center my_row">
+			<div class="col-6 justify-content-center my_col bg-secondary text-white">
 				<p class="text-center font-weight-light">Este es el men&uacute; principal del sistema creado para 
 				la jefatura directa de un grupo de trabajo determinado. Permite la creaci&oacute;n, edici&oacute;n y
 				asignaci&oacute;n de actividades. Tambi&eacute;n permite visualizar las cargar de trabajo y automatizar

@@ -7,7 +7,7 @@
     $password = 'yORuvQUOYpxPt0sr'; 
     
     //-> intranet real server
-    //$password = 'ELIMINADO';      
+    //$password = 'deleted;      
     $myDB = 'infoapp';
 
 ?>

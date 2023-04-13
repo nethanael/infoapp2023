@@ -22,23 +22,23 @@
 		<title>Sistema de Informes</title>
 	</head>
 <body>
-	<div class = "container mi_cont">
+	<div class = "container my_cont">
 
-		<div class = "row justify-content-center mi_row">
-			<div class = "col-6 mi_col">
+		<div class = "row justify-content-center my_row">
+			<div class = "col-6 my_col">
 					<!--(row_!Titulo!)-->
 					<p class="text-center"><img src="imgs/logo_1.png"></p>
 			</div>
 		</div>
 
-		<div class = "row justify-content-center mi_row">
-			<div class = "col-6 mi_col">
+		<div class = "row justify-content-center my_row">
+			<div class = "col-6 my_col">
 				<!--(row_!nav!)-->
 			</div>
 		</div>
 		
-		<div class = "row justify-content-center mi_row">
-			<div class = "col-6 justify-content-center mi_col">
+		<div class = "row justify-content-center my_row">
+			<div class = "col-6 justify-content-center my_col">
 				<!--(row_!Centro!)-->
 				<form name="form1" method="post" action="scripts/user_check.php">
 					<table class="table">
@@ -64,10 +64,10 @@
 				</form>
 			</div>
 		</div>
-		<div class = "row justify-content-center mi_row">
-			<div class="col-6 justify-content-center mi_col bg-secondary text-white">
+		<div class = "row justify-content-center my_row">
+			<div class="col-6 justify-content-center my_col bg-secondary text-white">
 				<p class="text-center font-weight-light">Utilizar el sistema responsablemente. No se permite 
-				el prestamo de usuarios y contrase&ntilde;as. Consultas y sugerencias a: phidalgoa@ice.go.cr </p>
+				el pr&eacutestamo de usuarios y contrase&ntilde;as. Consultas y sugerencias a: phidalgoa@ice.go.cr </p>
 			</div>
 		</div>
 

@@ -10,6 +10,7 @@ session_start();
 	$_SESSION['LAST_NAME'] = '';
 	$_SESSION['ID'] = '';
 	$_SESSION['USER_CODE'] = '';
+	$_SESSION['DEPT_CODE'] = '';
 	$_SESSION['ROLE_NAME'] = '';
     $_SESSION['ROLE_DESCRIPTION'] = '';
 
@@ -19,7 +20,9 @@ session_start();
 	$_SESSION['USER_TEMP'] = '';		
 	
 	
-	//$_SESSION['ACT_ERROR'] = '';				
+	$_SESSION['NEW_TASK_ERROR'] = '';	
+	$_SESSION['TASK_TITLE_TEMP'] = '';
+	$_SESSION['TASK_DESCRIPTION_TEMP'] = '';			
 	//$_SESSION['EDITAR_ERROR'] = '';				
 	//$_SESSION['REACT_ERROR'] = '';				
 	//$_SESSION['REABRIR_ERROR'] = '';				
