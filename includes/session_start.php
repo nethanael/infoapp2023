@@ -8,7 +8,9 @@
 	$_SESSION['USER_CODE'] = $data["user_code"];
 	$_SESSION['DEPT_CODE'] = $data["dept_code"];
 	$_SESSION['ROLE_NAME'] = $data["role_name"];
+	$_SESSION['ROLE_CODE'] = $data["role_code"];
     $_SESSION['ROLE_DESCRIPTION'] = $data["role_description"];
+	$_SESSION['INBOX_MSG'] = $data["inbox_msg"];
 
 	//recordar vaciar todas las variables de sesión.
 

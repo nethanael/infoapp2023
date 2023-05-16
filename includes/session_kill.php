@@ -13,6 +13,8 @@ session_start();
 	$_SESSION['DEPT_CODE'] = '';
 	$_SESSION['ROLE_NAME'] = '';
     $_SESSION['ROLE_DESCRIPTION'] = '';
+	$_SESSION['ROLE_CODE'] = '';
+	$_SESSION['INBOX_MSG'] = '';
 
 	//empty all form temporary sessions variables
 

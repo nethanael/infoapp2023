@@ -107,4 +107,20 @@
     };
 
 
+/* -------------------------------------------- Time functions---------------------------------*/
+
+function dateDifference($date_1 , $date_2 , $differenceFormat = '%R%a' )
+	{
+		$datetime1 = date_create($date_1);
+		$datetime2 = date_create($date_2);
+
+        if ($datetime1 == false || $datetime2 == false){
+            return "N/A";
+        }
+	
+		$interval = date_diff($datetime1, $datetime2);
+	
+		return $interval->format($differenceFormat);
+	}
+
 ?>

@@ -4,7 +4,7 @@
 	header("Last-Modified: $ts");
 	header("Pragma: no-cache");
 	header("Cache-Control: no-cache, must-revalidate");
-	
+
 	session_start();
 
 	if ($_SESSION['LOGIN_INFOAPP'] == FALSE ){header("Location: index.php");}
@@ -14,8 +14,16 @@
         if ($_SESSION['ROLE_NAME'] == "supervisor") header("Location: home_supervisor.php");
         //if ($_SESSION['ROLE_NAME'] == "employee") header("Location: home_employee.php");
         }
-?>
 
+	$user_code = $_SESSION['USER_CODE'];
+
+	//if ($rango == 2){
+	//	$link = "scripts/crear_info_desempeno_personal.php";
+	//}else{
+	//	$link = "scripts/crear_info_desempeno_personal_admin.php";
+	//};
+ 
+?>
 <!DOCTYPE HTML>
 <html>
 	<head>
@@ -28,25 +36,40 @@
 <body>
 	<div class = "container my_cont">
 
-		<?php include 'includes/header.php'; ?>
-		<?php include 'includes/navBar.php'; ?>
-		
-		<div class = "row justify-content-center my_row">
+	<?php include 'includes/header.php'; ?>
+	<?php include 'includes/navBar.php'; ?>
+
+	<div class = "row justify-content-center my_row">
 			<div class = "col-6 my_col">
 				<!-- (row_!Centro!) -->
-					<table class="table">
-                        <h1>Employee</h1>
-					</table>
+				<table class="table">
+					<thead class="thead-light">
+						<tr>
+							<th class="my_td h5" colspan="2">Menu Principal de <?php echo $_SESSION['NAME'];?>:</th>
+						</tr>
+					</thead>
+					<tr>
+						<td class="my_td"><a class="btn btn-light btn-block" href="pending_tasks.php">Actividades Pendientes</a></td>
+						<td class="my_td"><a class="btn btn-light btn-block" href="">Conteo de Actividades</a></td>
+					</tr>
+					<tr>
+						<td class="my_td"><a class="btn btn-light btn-block" href="all_system_tasks_employee.php">Consulta General</a></td>
+						<td class="my_td"><a class="btn btn-light btn-block" href="">Mi Historico</a></td>
+					</tr>
+					<tr>
+						<th class="my_td h5" colspan="2">Generación de informes:<th>
+					</tr>
+					<tr>
+						<td class="my_td"><a class="btn btn-light btn-block" href="">Informe Actividades Mensual</a></td>
+						<td class="my_td"><a class="btn btn-light btn-block" href=<?php //echo $link; ?> >Informe Desempe&ntilde;o Mensual</a></td>
+					</tr>
+				</table>
+				</div>
 			</div>
-		</div>
 
 		<div class = "row justify-content-center my_row">
-			<div class="col-6 justify-content-center my_col bg-secondary text-white">
-				<p class="text-center font-weight-light">Este es el men&uacute; principal del sistema creado para 
-				la jefatura directa de un grupo de trabajo determinado. Permite la creaci&oacute;n, edici&oacute;n y
-				asignaci&oacute;n de actividades. Tambi&eacute;n permite visualizar las cargar de trabajo y automatizar
-				la creaci&oacute;n del informe mensual de un departamento.</p>
-			
+			<div class = "col-6 my_col">
+				<div class="p-3 mb-2 bg-success text-white">Mensaje Importante: <?php echo $_SESSION['INBOX_MSG'];?></div>
 			</div>
 		</div>
 
