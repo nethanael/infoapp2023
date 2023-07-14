@@ -12,17 +12,19 @@
     $_SESSION['ROLE_DESCRIPTION'] = $data["role_description"];
 	$_SESSION['INBOX_MSG'] = $data["inbox_msg"];
 
-	//recordar vaciar todas las variables de sesión.
+	//empty all form temporary sessions variables
 
-	$_SESSION['LOGIN_ERROR'] = '';				//revisado
-	$_SESSION['USER_TEMP'] = '';				//revisado
-	//$_SESSION['CAMBIO_PASS_ERROR'] = '';		//revisado
+	$_SESSION['LOGIN_ERROR'] = '';				
+	$_SESSION['USER_TEMP'] = '';				
+	//$_SESSION['CAMBIO_PASS_ERROR'] = '';		
 	
-	$_SESSION['NEW_TASK_ERROR'] = '';			//revisado
-	$_SESSION['TASK_TITLE_TEMP'] = '';			//revisado
-	$_SESSION['TASK_DESCRIPTION_TEMP'] = '';	//revisado
+	$_SESSION['NEW_TASK_ERROR'] = '';			
+	$_SESSION['TASK_TITLE_TEMP'] = '';			
+	$_SESSION['TASK_DESCRIPTION_TEMP'] = '';	
 
-	//$_SESSION['EDITAR_ERROR'] = '';				
+	$_SESSION['EDIT_TASK_ERROR'] = '';	
+	$_SESSION['REACTIVATE_TASK_ERROR'] = '';		
+			
 	//$_SESSION['REACT_ERROR'] = '';				
 	//$_SESSION['REABRIR_ERROR'] = '';			
 

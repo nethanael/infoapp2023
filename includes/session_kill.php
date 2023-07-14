@@ -19,13 +19,17 @@ session_start();
 	//empty all form temporary sessions variables
 
 	$_SESSION['LOGIN_ERROR'] = '';				
-	$_SESSION['USER_TEMP'] = '';		
+	$_SESSION['USER_TEMP'] = '';				
+	//$_SESSION['CAMBIO_PASS_ERROR'] = '';		
 	
+	$_SESSION['NEW_TASK_ERROR'] = '';			
+	$_SESSION['TASK_TITLE_TEMP'] = '';			
+	$_SESSION['TASK_DESCRIPTION_TEMP'] = '';	
+
+	$_SESSION['EDIT_TASK_ERROR'] = '';		
+	$_SESSION['REACTIVATE_TASK_ERROR'] = '';
 	
-	$_SESSION['NEW_TASK_ERROR'] = '';	
-	$_SESSION['TASK_TITLE_TEMP'] = '';
-	$_SESSION['TASK_DESCRIPTION_TEMP'] = '';			
-	//$_SESSION['EDITAR_ERROR'] = '';				
+				
 	//$_SESSION['REACT_ERROR'] = '';				
 	//$_SESSION['REABRIR_ERROR'] = '';				
 	

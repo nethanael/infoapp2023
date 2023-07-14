@@ -47,10 +47,10 @@
 						</tr>
 						<tr>
 							<td><p class="my_td"><a class="btn btn-light btn-block" href="new_task.php">Crear</a></p></td>
-							<td><p class="my_td"><a class="btn btn-light btn-block" href="">Editar</a></p></td>
+							<td><p class="my_td"><a class="btn btn-light btn-block" href="edit_task.php">Editar</a></p></td>
 						</tr>
 						<tr>
-							<td><p class="my_td"><a class="btn btn-light btn-block" href="">Reactivar</a></p></td>
+							<td><p class="my_td"><a class="btn btn-light btn-block" href="reactivate_task.php">Reactivar</a></p></td>
 							<td><p class="my_td"><a class="btn btn-light btn-block" href="">Devolver</a></p></td>
 						</tr>
 						<tr>

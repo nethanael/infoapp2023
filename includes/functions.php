@@ -70,13 +70,32 @@
         return $data_1D;
     };
 
-    // insert query
+    // simple insert query
 
     function db_insert_query($table,$fields,$values){
         include 'connection.php';
         $query = "INSERT INTO ".$table." ".$fields." VALUES ".$values;
 		//echo $query;
 		return mysqli_query($conn, $query);                        //inserts to db
+    };
+
+     // simple select query with where clause (Use to iterate and build tables)
+
+     function db_select_simple($table1, $fields, $whereClause){
+        include 'connection.php';
+        $query = "SELECT ".$fields." FROM ".$table1." WHERE ".$whereClause;
+        //echo $query;
+        return mysqli_query($conn, $query);                        //query to db
+    };
+
+    // simple select query with where clause and a fetched result (use to fill forms with data)
+
+    function db_select_simple_fetch($table1, $fields, $whereClause){
+        include 'connection.php';
+        $query = "SELECT ".$fields." FROM ".$table1." WHERE ".$whereClause;
+        //echo $query;
+        $result = mysqli_query($conn, $query);
+        return mysqli_fetch_assoc($result); 
     };
 
     // select query with 1 inner join and 1 where clause
@@ -121,6 +140,24 @@ function dateDifference($date_1 , $date_2 , $differenceFormat = '%R%a' )
 		$interval = date_diff($datetime1, $datetime2);
 	
 		return $interval->format($differenceFormat);
-	}
+	};
+
+function monthFix()
+    {
+        //$month = 1;
+        $month = date("m");
+        $month = $month - 1;
+        $month = ($month <= 9) ? ("0".$month) : ($month);
+        $month = ($month == 0) ? ("12") : ($month);
+        return $month ;
+    };
+
+function yearFix($month)
+    {
+        $year = date("y");
+        $year = ($month == "12") ? ($year - 1) : ($year);
+        return $year;
+    };
 
 ?>
+

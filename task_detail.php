@@ -15,7 +15,8 @@
         if ($_SESSION['ROLE_NAME'] == "employee") header("Location: home_employee.php");
         }
 
-    $task_code = $_GET['task_code']; 
+    $task_code = $_GET['data']; 
+    $dept_code = $_SESSION['DEPT_CODE'];
     include 'includes/functions.php';
 
     //------------------First query-------------------------------
@@ -36,7 +37,7 @@
     $ONclause2="infoapp_tasks.task_type_code=infoapp_task_type.task_type_code";
     $ONclause3="infoapp_tasks.user_code_1=infoapp_users.user_code";
 
-    $whereClause="infoapp_tasks.task_code='$task_code'";
+    $whereClause="infoapp_tasks.task_code='$task_code' AND infoapp_tasks.dept_code=$dept_code";
 
     $result = db_select_3_inner_query($tasks_table, $departments_table, $task_type_table, $users_table, $fields, $ONclause1, $ONclause2, $ONclause3, $whereClause);
     $data = mysqli_fetch_assoc($result);
@@ -163,15 +164,30 @@
                             </tr>
                         <tr>
                             <td>Responsable:</td>  
-                            <td><?php echo $name." ".$last_name;?></td>
+                            <td><?php 
+                                    echo "<span class='badge badge-info'>";
+                                    echo ($last_name) ? $last_name : "Sin asignar";
+                                    echo "</span>";
+                                ?>
+                            </td>
                         </tr>
                         <tr>
                             <td>Responsable 2:</td>  
-                            <td><?php echo $name_2." ".$last_name_2;?></td>
+                            <td><?php
+                                    echo "<span class='badge badge-info'>"; 
+                                    echo ($last_name_2) ? $last_name_2 : "Sin asignar";
+                                    echo "</span>";
+                                ?>
+                            </td>
                         </tr>
                         <tr>
                             <td>Responsable 3:</td>  
-                            <td><?php echo $name_3." ".$last_name_3;?></td>
+                            <td><?php 
+                                    echo "<span class='badge badge-info'>";
+                                    echo ($last_name_3) ? $last_name_3 : "Sin asignar";
+                                    echo "</span>";
+                                ?>
+                            </td>
                         </tr>
                         <tr>
                             <td>Departamento:</td>  
@@ -179,7 +195,7 @@
                         </tr>
                         <tr>
                             <td>Tipo de Actividad:</td>  
-                            <td><?php echo $task_type_title;?></td>
+                            <td><?php echo "<span class='badge badge-secondary'>$task_type_title</span>";?></td>
                         </tr>
                         <tr>
                             <td>Fecha Creaci&oacuten:</td>  
@@ -201,7 +217,7 @@
                             <td>Estado de la actividad:</td>  
                             <td>
                                 <?php 
-                                    echo ($task_status == 1) ? "Abierta" : "Cerrada";
+                                    echo ($task_status == 0) ? "<span class='badge badge-warning'>Abierta</span>" : "<span class='badge badge-success'>Cerrada</span>";
                                 ?>
                             </td>
                         </tr>
@@ -209,7 +225,7 @@
                             <td>Avance 1:</td>  
                             <td>
                                 <?php 
-                                    echo ($progress_1 == null) ? "Sin avances" : $progress_1;
+                                    echo ($progress_1 == null) ? "" : "<i>".$progress_1."</i>";
                                 ?>
                             </td>
                         </tr>
@@ -217,7 +233,7 @@
                             <td>Avance 2:</td>  
                             <td>
                                 <?php 
-                                    echo ($progress_2 == null) ? "Sin avances" : $progress_1;
+                                    echo ($progress_2 == null) ? "" : "<i>".$progress_2."</i>";
                                 ?>
                             </td>
                         </tr>
@@ -225,7 +241,7 @@
                             <td>Avance 3:</td>  
                             <td>
                                 <?php 
-                                    echo ($progress_3 == null) ? "Sin avances" : $progress_1;
+                                    echo ($progress_3 == null) ? "" : "<i>".$progress_3."</i>";
                                 ?>
                             </td>
                         </tr>
@@ -233,7 +249,7 @@
                             <td>Avance 4:</td>  
                             <td>
                                 <?php 
-                                    echo ($progress_4 == null) ? "Sin avances" : $progress_1;
+                                    echo ($progress_4 == null) ? "" : "<i>".$progress_4."</i>";
                                 ?>
                             </td>
                         </tr>
@@ -241,15 +257,19 @@
                             <td>Meta de Desempeño 1:</td>  
                             <td>
                                 <?php 
+                                    echo "<span class='badge badge-primary'>";
                                     echo ($performance_goal_1 == '') ? "No Asignada" : $performance_goal_1;
+                                    echo "</span>";
                                 ?>
                             </td>
                         </tr>
                         <tr>
                             <td>Meta de Desempeño 2:</td>  
                             <td>
-                                <?php 
+                                <?php
+                                    echo "<span class='badge badge-primary'>";
                                     echo ($performance_goal_2 == '') ? "No Asignada" : $performance_goal_2;
+                                    echo "</span>";
                                 ?>
                             </td>
                         </tr>
@@ -257,7 +277,9 @@
                             <td>Meta de Desempeño 3:</td>  
                             <td>
                                 <?php 
+                                    echo "<span class='badge badge-primary'>";
                                     echo ($performance_goal_3 == '') ? "No Asignada" : $performance_goal_3;
+                                    echo "</span>";
                                 ?>
                             </td>
                         </tr>

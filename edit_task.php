@@ -16,23 +16,16 @@
         }
 
     $dept_code=$_SESSION['DEPT_CODE'];
+    $month = date("m");
+    $year = date("y");
     include 'includes/functions.php';
 
     $tasks_table="infoapp_tasks";
     $departments_table="infoapp_departments";
-    $task_type_table="infoapp_task_type";
-    $users_table="infoapp_users";
-    $perf_goal_table="infoapp_performance_goals";
-
-    $fields="infoapp_tasks.task_code, infoapp_tasks.task_title, infoapp_tasks.task_description, infoapp_users.last_name, infoapp_departments.dept_name, infoapp_task_type.task_type_title";
-
-    $ONclause1="infoapp_tasks.dept_code=infoapp_departments.dept_code";
-    $ONclause2="infoapp_tasks.task_type_code=infoapp_task_type.task_type_code";
-    $ONclause3="infoapp_tasks.user_code_1=infoapp_users.user_code";
-
-    $whereClause="infoapp_tasks.dept_code='$dept_code'";
-
-    $result = db_select_3_inner_query($tasks_table, $departments_table, $task_type_table, $users_table, $fields, $ONclause1, $ONclause2, $ONclause3, $whereClause);
+    $fields="infoapp_tasks.task_code, infoapp_tasks.task_title, infoapp_tasks.task_description, infoapp_departments.dept_name";
+    $ONclause1="infoapp_tasks.dept_code=infoapp_departments.dept_code";          
+    $whereClause="infoapp_tasks.dept_code='$dept_code' AND infoapp_tasks.month ='$month' AND infoapp_tasks.year ='$year'";
+    $result = db_select_1_inner_query($tasks_table, $departments_table, $fields, $ONclause1, $whereClause);
 
 ?>
 
@@ -52,49 +45,47 @@
 	<?php include 'includes/navBar.php'; ?>
           
 		<div class = "row justify-content-center my_row">
-			<div class = "table-responsive my_scrollable_div">
+			<div class = "table-responsive">
 				<!-- (row_!Centro!) -->
                 <table class="table table-sm table-striped table-hover">
                     <thead class="thead-dark">
                         <tr>
-                            <th class="my_td" colspan="10">Actividades Totales Departamento:</th>
+                            <th class="my_td" colspan="5">Actividades Editables:</th>
                         </tr>
                         <tr>
-                            <td colspan="10"><small>Haga click en el c&oacutedigo de actividad para ver en detalle.</small></td>
+                            <td colspan="5"><small>Puede hacer clic en el c&oacute;digo de la actividad para editar detalles.</small></td>
                         </tr>
                     </thead>
                     <tr>
-                        <th><small>Codigo Actividad:</small></th>
-                        <th><small>Titulo:</small></th>
-                        <th><small>Descripcion:</small></th>
-                        <th><small>Responsable:</small></th>
+                        <th><small>C&oacute;digo Actividad:</small></th>
+                        <th><small>T&iacute;tulo:</small></th>
+                        <th><small>Descripci&oacute;n:</small></th>
                         <th><small>Departamento:</small></th>
-                        <th><small>Tipo de Actividad:</small></th>
                     </tr>
                         <?php                                                   //saca todos los valores de la base de datos y
                                                                                 // los hace filas
-                            while ($line =  $result->fetch_assoc()) 
+                            while ($line = $result->fetch_assoc()) 
                                 {
                                     echo "<tr>";
                                     foreach ($line as $col_name => $col_value)
                                         {
-                                            if ($col_name == 'task_code'){
-                                                echo "<td class='my_td'><a class='btn btn-primary' href=task_detail.php?data=",$col_value,">$col_value</a></td>";
-                                            }
-                                            if ($col_name != 'task_code'){
+                                             if ($col_name== 'task_code'){
+                                                 echo "<td class='my_td'><a class='btn btn-primary' href=edit_task_2.php?data=",$col_value,">$col_value</a></td>";
+                                             }else{
                                                 echo "<td><small>$col_value</small></td>";
-                                            }
+                                             }
                                         }
                                     echo "</tr>";
                                 }
-                        ?>     
+                        ?> 
+                        <tr><td><?php echo  $_SESSION[''];?></td></tr>   
                 </table>
             </div>
-        <a class="btn btn-info" href="index.php">Volver</a>
+            <a class="btn btn-info" href="index.php">Volver</a>
 		</div>
 
         <?php 
-             mysqli_free_result($result);
+            mysqli_free_result($result);
             include 'includes/footer.php'; 
         ?>
 

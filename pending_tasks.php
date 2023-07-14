@@ -25,7 +25,7 @@
     $task_type_table="infoapp_task_type";
     $fields="task_code, task_type_title, task_title, task_description, req_date";
     $ONclause1="infoapp_tasks.task_type_code=infoapp_task_type.task_type_code";
-    $whereClause="( user_code_1 LIKE '$user_code' OR user_code_2 LIKE '$user_code' OR user_code_3 LIKE '$user_code') AND task_status = 1";
+    $whereClause="( user_code_1 LIKE '$user_code' OR user_code_2 LIKE '$user_code' OR user_code_3 LIKE '$user_code') AND task_status = 0";
     $result = db_select_1_inner_query($tasks_table, $task_type_table, $fields, $ONclause1, $whereClause);
     
 ?>
@@ -69,11 +69,9 @@
 
 					echo '<div class = "col-sm-6 my_col">';
 						echo '<div class="card bg-light mb-3">';
-
 							echo '<div class="card-header">';
 								echo $row['task_type_title'];
 							echo '</div>';
-
 							echo '<div class="card-body '.$custom_class.'">';
 								echo '<h5 class="card-title">'.$row["task_title"].'</h5>';
 								echo '<h6 class="card-subtitle mb-2 text-muted">Codigo: '.$row["task_code"].'</h6>';
@@ -82,7 +80,6 @@
 								echo '<h6 class="card-subtitle mb-2 text-muted">Dias: '.$time_left.'</h6>';
 								echo '<a href="hacer_avance_2_especial.php?superdato='.$row['task_code'].'" class="btn btn-primary">Avances</a>';
 							echo '</div>';
-
 						echo '</div>';
 					echo '</div>';
                 }
