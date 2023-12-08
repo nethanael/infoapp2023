@@ -16,12 +16,6 @@
         }
 
 	$user_code = $_SESSION['USER_CODE'];
-
-	//if ($rango == 2){
-	//	$link = "scripts/crear_info_desempeno_personal.php";
-	//}else{
-	//	$link = "scripts/crear_info_desempeno_personal_admin.php";
-	//};
  
 ?>
 <!DOCTYPE HTML>
@@ -50,18 +44,18 @@
 					</thead>
 					<tr>
 						<td class="my_td"><a class="btn btn-light btn-block" href="pending_tasks.php">Actividades Pendientes</a></td>
-						<td class="my_td"><a class="btn btn-light btn-block" href="">Conteo de Actividades</a></td>
+						<td class="my_td"><a class="btn btn-light btn-block" href="task_bargraph.php">Conteo de Actividades</a></td>
 					</tr>
 					<tr>
 						<td class="my_td"><a class="btn btn-light btn-block" href="all_system_tasks_employee.php">Consulta General</a></td>
-						<td class="my_td"><a class="btn btn-light btn-block" href="">Mi Historico</a></td>
+						<td class="my_td"><a class="btn btn-light btn-block" href="all_system_tasks_employee_history.php">Mi Historico</a></td>
 					</tr>
 					<tr>
 						<th class="my_td h5" colspan="2">Generación de informes:<th>
 					</tr>
 					<tr>
-						<td class="my_td"><a class="btn btn-light btn-block" href="">Informe Actividades Mensual</a></td>
-						<td class="my_td"><a class="btn btn-light btn-block" href=<?php //echo $link; ?> >Informe Desempe&ntilde;o Mensual</a></td>
+						<td class="my_td"><a class="btn btn-light btn-block" href="employee_month_report.php">Informe Actividades Mensual</a></td>
+						<td class="my_td"><a class="btn btn-light btn-block" href="scripts/employee_month_performance_report.php">Informe Desempe&ntilde;o Mensual</a></td>
 					</tr>
 				</table>
 				</div>

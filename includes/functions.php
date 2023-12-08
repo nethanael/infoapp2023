@@ -103,7 +103,8 @@
     function db_select_1_inner_query($table1, $table2, $fields, $ONclause1, $whereClause){
         include 'connection.php';
         $query = "SELECT ".$fields." FROM ".$table1." INNER JOIN ".$table2." ON ".$ONclause1." WHERE ".$whereClause;
-        //echo $query;
+        echo $query;
+        echo "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++";
         return mysqli_query($conn, $query);                        //query to db
     };
 
@@ -123,6 +124,18 @@
         $query = "SELECT ".$fields." FROM ".$table1." INNER JOIN ".$table2." ON ".$ONclause1." INNER JOIN ".$table3." ON ".$ONclause2." INNER JOIN ".$table4." ON ".$ONclause3." WHERE ".$whereClause;
         //echo $query;
         return mysqli_query($conn, $query);                        //query to db
+    };
+
+    // simple row count 
+
+    function countRows($table1, $whereClause){
+        include 'connection.php';
+        $query = "SELECT *, COUNT(*) FROM ".$table1." WHERE ".$whereClause;
+        //echo $query;
+        //return mysqli_query($conn, $query);
+        $result = mysqli_query($conn, $query);
+        return mysqli_fetch_assoc($result); 
+
     };
 
 
@@ -157,6 +170,52 @@ function yearFix($month)
         $year = date("y");
         $year = ($month == "12") ? ($year - 1) : ($year);
         return $year;
+    };
+
+    function monthName()
+    {
+        //$month = 1;
+        $month = date("m");
+
+        switch ($month) {
+            case 1:
+                return "Enero ";
+                break;
+            case 2:
+                return "Febrero ";
+                break;
+            case 3:
+                return "Marzo ";
+                break;
+            case 4:
+                return "Abril ";
+                break;
+            case 5:
+                return "Mayo ";
+                break;
+            case 6:
+                return "Junio ";
+                break;
+            case 7:
+                return "Julio ";
+                break;
+            case 8:
+                return "Agosto ";
+                break;
+            case 9:
+                return "Setiembre ";
+                break;
+            case 10:
+                return "Octubre ";
+                break;
+            case 11:
+                return "Noviembre ";
+                break;
+            case 12:
+                return "Diciembre ";
+                break;
+        }
+        return $month ;
     };
 
 ?>

@@ -10,7 +10,7 @@
                     <a class="nav-link" href="index.php">Inicio</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="">Contraseña</a>
+                    <a class="nav-link" href="ldap_profile.php">Mi perfil</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="about.php">Acerca</a>

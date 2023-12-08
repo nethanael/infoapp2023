@@ -23,12 +23,12 @@
 	$_SESSION['TASK_DESCRIPTION_TEMP'] = '';	
 
 	$_SESSION['EDIT_TASK_ERROR'] = '';	
-	$_SESSION['REACTIVATE_TASK_ERROR'] = '';		
+	$_SESSION['REACTIVATE_TASK_ERROR'] = '';	
+	
+	$_SESSION['UPDATE_TASK_ERROR'] = '';
 			
 	//$_SESSION['REACT_ERROR'] = '';				
 	//$_SESSION['REABRIR_ERROR'] = '';			
-
-	//$_SESSION['AVC_ERROR'] = '';
 	
 	//$_SESSION['MSJ_ERROR'] = '';
 	

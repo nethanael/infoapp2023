@@ -6,6 +6,7 @@ session_start();
 
 	$_SESSION['LOGIN_INFOAPP'] = FALSE;
 	$_SESSION['USER'] = '';
+	$_SESSION['PASS'] = '';
 	$_SESSION['NAME'] = '';
 	$_SESSION['LAST_NAME'] = '';
 	$_SESSION['ID'] = '';
@@ -28,12 +29,12 @@ session_start();
 
 	$_SESSION['EDIT_TASK_ERROR'] = '';		
 	$_SESSION['REACTIVATE_TASK_ERROR'] = '';
+
+	$_SESSION['UPDATE_TASK_ERROR'] = '';
 	
 				
 	//$_SESSION['REACT_ERROR'] = '';				
 	//$_SESSION['REABRIR_ERROR'] = '';				
-	
-	//$_SESSION['AVC_ERROR'] = '';
 	
 	//$_SESSION['MSJ_ERROR'] = '';
 	

@@ -1,10 +1,10 @@
 <?php
 
     $servername = 'localhost';
-    $username = 'infoapp';
+    $DBusername = 'infoapp';
 
     //-> localhost test server
-    $password = 'yORuvQUOYpxPt0sr'; 
+    $DBpassword = 'yORuvQUOYpxPt0sr'; 
     
     //-> intranet real server
     //$password = 'deleted;      

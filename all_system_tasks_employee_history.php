@@ -15,7 +15,8 @@
         //if ($_SESSION['ROLE_NAME'] == "employee") header("Location: home_employee.php");
         }
 
-    $dept_code=$_SESSION['DEPT_CODE'];
+    $dept_code = $_SESSION['DEPT_CODE'];
+    $user_code = $_SESSION['USER_CODE'];
     include 'includes/functions.php';
 
     $tasks_table="infoapp_tasks";
@@ -30,7 +31,7 @@
     $ONclause2="infoapp_tasks.task_type_code=infoapp_task_type.task_type_code";
     $ONclause3="infoapp_tasks.user_code_1=infoapp_users.user_code";
 
-    $whereClause="infoapp_tasks.dept_code='$dept_code'";
+    $whereClause="infoapp_tasks.dept_code='$dept_code' AND (infoapp_tasks.user_code_1='$user_code' OR infoapp_tasks.user_code_2='$user_code' OR infoapp_tasks.user_code_3='$user_code')";
 
     $result = db_select_3_inner_query($tasks_table, $departments_table, $task_type_table, $users_table, $fields, $ONclause1, $ONclause2, $ONclause3, $whereClause);
 

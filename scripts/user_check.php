@@ -22,6 +22,11 @@ else
 	$data = mysqli_fetch_assoc($resul);
 	$user_bd = $data["user"];
 	$pass_bd = $data["password"];
+
+// Primeramente hacer la autenticación contra el active directory
+// Que el password esté en el LDAP
+// pero el role si se mantiene una tabla de la base de datos local
+
 	mysqli_free_result($resul); 
 
 	if ($user == $user_bd) 
