@@ -19,17 +19,28 @@
 
     include '../includes/functions.php';
 
+//Report DB query
+
     $tasks_table="infoapp_tasks";
     $task_type_table="infoapp_task_type";
 
-    $fields="infoapp_task_type.task_type_title, infoapp_tasks.task_title,
-    infoapp_tasks.task_description, infoapp_tasks.performance, infoapp_tasks.progress_1, infoapp_tasks.progress_2, infoapp_tasks.progress_3, 
+    $fields="infoapp_tasks.task_title, infoapp_tasks.task_description, infoapp_task_type.task_type_title, 
+    infoapp_tasks.performance, infoapp_tasks.progress_1, infoapp_tasks.progress_2, infoapp_tasks.progress_3, 
     infoapp_tasks.progress_4";
 
     $ONclause1="infoapp_tasks.task_type_code=infoapp_task_type.task_type_code";
-    $whereClause="(user_code_1 Like $user_code OR user_code_2 LIKE $user_code or user_code_3 LIKE $user_code) AND month LIKE $month AND year LIKE $year AND infoapp_tasks.task_report like 1";
+    $whereClause="(user_code_1 LIKE $user_code OR user_code_2 LIKE $user_code or user_code_3 LIKE $user_code) AND month LIKE $month AND year LIKE $year AND infoapp_tasks.task_report like 1";
+    $orderBy="infoapp_tasks.task_type_code";
 
-    $result = db_select_1_inner_query($tasks_table, $task_type_table, $fields, $ONclause1, $whereClause);
+    $result = db_select_1_inner_query_orderby($tasks_table, $task_type_table, $fields, $ONclause1, $whereClause, $orderBy);
+
+// Department name DB query
+
+    $table="infoapp_departments";
+    $field="dept_name";
+    $whereClause="dept_code LIKE $dept_code";
+
+    $result2=db_select_simple_fetch($table, $field, $whereClause);
  
 ?>
 
@@ -51,10 +62,10 @@
 			<div class = "col-10 my_col">
 				<!-- (row_!Centro!) -->
                 <div id="exportContent">
-                <table table border="1"class="table-responsive my_table">
+                <table table border="1" class="table-responsive my_table">
                     <thead class="thead-light">
                         <tr>
-                            <th colspan="4"><h1>Investigación y Desarrollo - Sistemas Fijos</h1></th>
+                            <th colspan="4"><h1><?php echo $result2[dept_name]?></h1></th>
                         </tr>
                         <tr>
                             <td colspan="4"><h2>Informe Mensual de actividades</h2></td>
@@ -77,9 +88,9 @@
                         while ($line =  $result->fetch_assoc()) 
                                     {
                                         echo "<tr>";
-                                            echo "<th>Tipo de Actividad:</th>";
                                             echo "<th>T&iacutetulo:</th>";
                                             echo "<th>Descripci&oacuten:</th>";
+                                            echo "<th>Tipo de Actividad:</th>";
                                             echo "<th>Desempe&ntildeo:</th>";
                                         echo "</tr>";
                                         echo "<tr>";
@@ -88,7 +99,7 @@
                                             if ($col_name != 'progress_1' && $col_name != 'progress_2' && $col_name != 'progress_3' && $col_name != 'progress_4' )
                                                 {
                                                     echo "<td><small>$col_value</small></td>";
-                                                } else {
+                                                } elseif($col_value) {
                                                         echo "<tr><td colspan='4'><small>$col_value</small></td></tr>";
                                                     }
                                         }

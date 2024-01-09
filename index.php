@@ -40,7 +40,7 @@
 		<div class = "row justify-content-center my_row">
 			<div class = "col-6 justify-content-center my_col">
 				<!--(row_!Centro!)-->
-				<form name="form1" method="post" action="scripts/ldap_auth.php">
+				<form name="form1" method="post" action="scripts/user_check.php">
 					<table class="table">
 						<tr>
 							<th colspan="2"><p class="text-center h5">Ingrese sus datos:</p></th>

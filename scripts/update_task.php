@@ -35,7 +35,7 @@
         progress_3 = '$progress_3', progress_4 = '$progress_4', delivery_date = '$right_now', 
         performance = '$performance', task_status = '$task_status', task_report = '$task_report'
          WHERE task_code LIKE '$task_code'";
-        echo $query;
+        //echo $query;
         $resul = mysqli_query($conn, $query);
 ?>
 

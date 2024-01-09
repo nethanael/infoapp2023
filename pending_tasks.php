@@ -26,7 +26,8 @@
     $fields="task_code, task_type_title, task_title, task_description, req_date";
     $ONclause1="infoapp_tasks.task_type_code=infoapp_task_type.task_type_code";
     $whereClause="( user_code_1 LIKE '$user_code' OR user_code_2 LIKE '$user_code' OR user_code_3 LIKE '$user_code') AND task_report = 0";
-    $result = db_select_1_inner_query($tasks_table, $task_type_table, $fields, $ONclause1, $whereClause);
+    $orderBy="infoapp_tasks.req_date";
+	$result = db_select_1_inner_query_orderby($tasks_table, $task_type_table, $fields, $ONclause1, $whereClause, $orderBy);
     
 ?>
 

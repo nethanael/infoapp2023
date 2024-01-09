@@ -19,29 +19,31 @@
     $month = date("m");
     $year = date("y");
 
-    // count how many performance goals the dept have in DB
+    $addition = 0;
+    $average = 0;
 
-    $DB_data = countRows("infoapp_performance_goals", "perf_dept_code=$dept_code");
-    //var_dump($DB_data);  
-    $numberRows= $DB_data["COUNT(*)"];
+//Report DB query
 
-    $performance_goal_index = 1;
+$tasks_table="infoapp_tasks";
+$performance_table="infoapp_performance_goals";
 
-    // HERE WE BUILD ONE QUERY FOR EVERY PERFOMANCE GOAL (PERF CODE 1)
+$fields="infoapp_performance_goals.perf_name, infoapp_tasks.task_title, infoapp_tasks.req_date, infoapp_tasks.delivery_date, infoapp_tasks.performance";
 
-    for ($numberRows; $numberRows > 0; $numberRows--) {
+$ONclause1="infoapp_tasks.perf_code_1 LIKE infoapp_performance_goals.perf_code";
+$whereClause="(user_code_1 LIKE $user_code OR user_code_2 LIKE $user_code or user_code_3 LIKE $user_code) AND infoapp_tasks.month LIKE $month AND infoapp_tasks.year LIKE $year AND infoapp_tasks.task_report like 1";
+$orderBy="infoapp_performance_goals.perf_code";
 
-        /*$queries[$performance_goal_index] = "SELECT infoapp_performance_goals.perf_name, infoapp_performance_goals.perf_code, 
-        infoapp_tasks.task_code, infoapp_tasks.task_title, infoapp_tasks.task_description, infoapp_tasks.performance 
-        FROM infoapp_tasks INNER JOIN infoapp_performance_goals ON infoapp_tasks.perf_code_1=infoapp_performance_goals.perf_code OR infoapp_tasks.perf_code_2=infoapp_performance_goals.perf_code OR infoapp_tasks.perf_code_3=infoapp_performance_goals.perf_code 
-        WHERE (user_code_1 Like $user_code OR user_code_2 LIKE $user_code or user_code_3 LIKE $user_code) AND perf_code_1 LIKE $performance_goal_index 
-        AND month LIKE $month AND year LIKE $year AND infoapp_tasks.task_report like 1"; */
+$resultA = db_select_1_inner_query_orderby($tasks_table, $performance_table, $fields, $ONclause1, $whereClause, $orderBy);
 
-        $queries[$performance_goal_index] = "SELECT * FROM infoapp_performance_goals 
-        WHERE perf_code LIKE $performance_goal_index";
-        
-        $performance_goal_index = $performance_goal_index + 1; 
-    }
+//Report DB query
+
+$ONclause1="infoapp_tasks.perf_code_2 LIKE infoapp_performance_goals.perf_code";
+$resultB = db_select_1_inner_query_orderby($tasks_table, $performance_table, $fields, $ONclause1, $whereClause, $orderBy);
+
+//Report DB query
+
+$ONclause1="infoapp_tasks.perf_code_3 LIKE infoapp_performance_goals.perf_code";
+$resultC = db_select_1_inner_query_orderby($tasks_table, $performance_table, $fields, $ONclause1, $whereClause, $orderBy);
 
 ?>
 
@@ -71,25 +73,88 @@
 			<div class = "table-responsive">
 				<!-- (row_!Centro!) -->
                 <table class="table table-sm table-bordered" id="tblData">
-                <?php
-                  
-                //print_r($queries);
 
-                for ($i = 1; $i <= count($queries); $i++){
-                    include '../includes/connection.php';
-                    $result = mysqli_query($conn, $queries[$i]);
-    
-                    while ($line =  $result->fetch_assoc()) 
+                <thead class="thead-light">
+                        <tr>
+                            <th colspan="5"><h1></h1></th>
+                        </tr>
+                        <tr>
+                            <td colspan="5"><h2>Informe de Desempe&ntildeo Mensual</h2></td>
+                        </tr>
+                        <tr>
+                            <td colspan="5">Correspondiente al mes de 
+                            <?php                                  
+                                    echo monthName($mes)."del 20".$year;                         //funcion de mes
+                                ?> 
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="5">Funcionario
+                                <?php echo $name. ' '; 
+                                echo $last_name;?>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Meta de Desempe&ntildeo Primaria:</th>
+                            <th>T&iacutetulo:</th>
+                            <th>Fecha l&iacutemite:</th>
+                            <th>Fecha entregada:</th>
+                            <th>Nota Obtenida:</th>
+                        </tr>
+                    </thead>
+                    <?php
+                        while ($line =  $resultA->fetch_assoc()) 
                                     {
+                                        echo "<tr>";
                                         foreach ($line as $col_name => $col_value)
                                         {
-                                            echo "<tr><td colspan='4'><small>$col_value</small></td></tr>";
+                                            echo "<td><small>$col_value</small></td>";
                                         }
+                                        echo "</tr>";
                                     }
-                    
-                }
+                    ?>
+                    <thead class="thead-light">
+                        <tr>
+                            <th>Meta de Desempe&ntildeo Secundaria:</th>
+                            <th>T&iacutetulo:</th>
+                            <th>Fecha l&iacutemite:</th>
+                            <th>Fecha entregada:</th>
+                            <th>Nota Obtenida:</th>
+                        </tr>
+                    </thead>
+                    <?php
+                        while ($line =  $resultB->fetch_assoc()) 
+                                    {
+                                        echo "<tr>";
+                                        foreach ($line as $col_name => $col_value)
+                                        {
+                                            echo "<td><small>$col_value</small></td>";
+                                        }
+                                        echo "</tr>";
+                                    }
+                    ?>
+                    <thead class="thead-light">
+                        <tr>
+                            <th>Meta de Desempe&ntildeo Terciaria:</th>
+                            <th>T&iacutetulo:</th>
+                            <th>Fecha l&iacutemite:</th>
+                            <th>Fecha entregada:</th>
+                            <th>Nota Obtenida:</th>
+                        </tr>
+                    </thead>
+                    <?php
+                        while ($line =  $resultC->fetch_assoc()) 
+                                    {
+                                        echo "<tr>";
+                                        foreach ($line as $col_name => $col_value)
+                                        {
+                                            echo "<td><small>$col_value</small></td>";
+                                        }
+                                        echo "</tr>";
+                                    }
+                    ?>
                 
-                ?>
+
                 </table>
             </div>
         <button class="btn btn-warning" onclick="exportTableToExcel('tblData', 'informe_desempeno')">Exportar a Excel</button><br>
@@ -110,6 +175,6 @@
 		</div>
 
 	</div>
-<script src="export_excel.js"></script> 
+<script src="export_report_excel.js"></script> 
 </body>
 </html>
