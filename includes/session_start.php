@@ -26,6 +26,7 @@
 	$_SESSION['REACTIVATE_TASK_ERROR'] = '';	
 	
 	$_SESSION['UPDATE_TASK_ERROR'] = '';
+	$_SESSION['RETURN_TASK_ERROR'] = '';
 			
 	//$_SESSION['REACT_ERROR'] = '';				
 	//$_SESSION['REABRIR_ERROR'] = '';			

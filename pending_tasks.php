@@ -15,8 +15,7 @@
         //if ($_SESSION['ROLE_NAME'] == "employee") header("Location: home_employee.php");
         }
 
-    include 'includes/functions.php';
-    include 'includes/connection.php';   
+    include 'includes/functions.php'; 
     
     $today = date("Y-m-d H:i");
     $user_code = $_SESSION['USER_CODE'];

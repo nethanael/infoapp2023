@@ -227,5 +227,26 @@ function yearFix($month)
         return $month ;
     };
 
+
+    // Performance time calculations
+
+    function performanceValue($right_now, $req_date)
+    {
+
+    $dateTimestamp1 = strtotime($right_now);
+    $dateTimestamp2 = strtotime($req_date);
+
+    if ($dateTimestamp1>$dateTimestamp2){
+            return "bajo";
+        }
+    if ($dateTimestamp1==$dateTimestamp2){
+            return "cuanto";
+        }
+    if ($dateTimestamp1<$dateTimestamp2){
+            return "sobresaliente";
+        }
+
+    }
+
 ?>
 

@@ -16,6 +16,7 @@
         }
 
     include 'includes/functions.php';
+
     $task_code = $_GET['data']; 
     $dept_code = $_SESSION['DEPT_CODE'];
     
@@ -54,22 +55,8 @@
 	mysqli_free_result($result);   
     
     $right_now = date("Y-m-d H:i");
-    $dateTimestamp1 = strtotime($right_now);
-    $dateTimestamp2 = strtotime($req_date);
+    $performance = performanceValue($right_now, $req_date);
 
-
-
-    // aca hay que hacer otra logica y agregar TODAS LAS METAS FUCK!
-
-    if ($dateTimestamp1>$dateTimestamp2){
-        $performance = 90;
-    }
-    if ($dateTimestamp1==$dateTimestamp2){
-        $performance = 100;
-    }
-    if ($dateTimestamp1<$dateTimestamp2){
-        $performance = 110;
-    }
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -214,8 +201,8 @@
                             <td><input type="text" value="<?php echo $right_now;?>" id="right_now" name="right_now" size="15" readonly></td>
                         </tr>
                         <tr>
-                            <td>Desempe&ntildeo si entrega en este momento:</td>  
-                            <td><input type="text" value="<?php echo $performance;?>" id="performance" name="performance" size="1" readonly></td>
+                            <td>Desempe&ntildeo de las metas si entrega en este momento:</td>  
+                            <td><input type="text" value="<?php echo $performance;?>" id="performance" name="performance" size="10" readonly></td>
                         </tr>
                         <tr>
                                 <td class="my_td" colspan="2"><input type="submit" name="Submit" value="Actualizar"></td>

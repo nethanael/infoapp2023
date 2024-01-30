@@ -81,7 +81,7 @@
                                 echo '<td class="my_td">'.$data1["total"]."</td></tr>";
 
                                 include 'includes/connection.php';  
-                                $query2 = "SELECT COUNT(*) as total FROM infoapp_tasks WHERE month = '$month' AND year = '$year' ";
+                                $query2 = "SELECT COUNT(*) as total FROM infoapp_tasks WHERE month = '$month' AND year = '$year' AND dept_code LIKE $dept_code";
                                 //echo $query2;
                                 $result2 = mysqli_query($conn, $query2, MYSQLI_USE_RESULT);
                                 $data2 = mysqli_fetch_assoc($result2);  

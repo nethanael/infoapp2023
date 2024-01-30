@@ -3,6 +3,9 @@
 
     include'../includes/functions.php';
 
+	$year = date("y");	
+	$month = date("m");
+
     $user = $_SESSION['USER'];
     $name = $_SESSION['NAME'];
     $dept_code = $_SESSION['DEPT_CODE'];
@@ -33,7 +36,8 @@
         
         $query = "UPDATE infoapp_tasks set progress_1 = '$progress_1', progress_2 = '$progress_2', 
         progress_3 = '$progress_3', progress_4 = '$progress_4', delivery_date = '$right_now', 
-        performance = '$performance', task_status = '$task_status', task_report = '$task_report'
+        performance = '$performance', task_status = '$task_status', task_report = '$task_report',
+		month = $month, year = $year
          WHERE task_code LIKE '$task_code'";
         //echo $query;
         $resul = mysqli_query($conn, $query);

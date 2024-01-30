@@ -51,7 +51,7 @@
 						</tr>
 						<tr>
 							<td><p class="my_td"><a class="btn btn-light btn-block" href="reactivate_task.php">Reactivar</a></p></td>
-							<td><p class="my_td"><a class="btn btn-light btn-block" href="">Devolver</a></p></td>
+							<td><p class="my_td"><a class="btn btn-light btn-block" href="return_task.php">Devolver</a></p></td>
 						</tr>
 						<tr>
 							<td colspan="2"><p class="my_td"><a class="btn btn-light btn-block" href="">Enviar Mensaje Personal</a></p></td>
@@ -63,12 +63,12 @@
 						</tr>
 						<tr>
 						<tr>
-							<td><p class="my_td"><a class="btn btn-light btn-block" href="">Distribuci&oacute;n de las actividades</a></p></td>
+							<td><p class="my_td"><a class="btn btn-light btn-block" href="general_task_bargraph.php">Distribuci&oacute;n de las actividades</a></p></td>
 							<td><p class="my_td"><a class="btn btn-light btn-block" href="">Trabajos pendientes</a></p></td>
 						</tr>
 						<tr>
 							<td><p class="my_td"><a class="btn btn-light btn-block" href="">Conteo Total del Mes</a></p></td>
-							<td><p class="my_td"><a class="btn btn-light btn-block" href="">Crear Informe Mensual</a></p></td>
+							<td><p class="my_td"><a class="btn btn-light btn-block" href="general_month_report.php">Crear Informe Mensual</a></p></td>
 						</tr>
 						<tr>
 							<td colspan="2"><p class="my_td"><a class="btn btn-light btn-block" href="all_system_tasks.php">Actividades Totales del Sistema</a></p></td>
@@ -79,11 +79,8 @@
 							</td>
 						</tr>
 						<tr>
-							<td><p class="my_td"><a class="btn btn-light btn-block" href="">Crear Informe Individual Técnico</a></p></td>
-							<td><p class="my_td"><a class="btn btn-light btn-block" href="">Crear Informe Individual Administrativo</a></p></td>
-						</tr>
-						<tr>
-							<td colspan="2"><p class="my_td"><a class="btn btn-light btn-block" href="">Crear Informe Desempe&ntilde;o General</a></p></td>
+							<td><p class="my_td"><a class="btn btn-light btn-block" href="">Crear Informe Individual</a></p></td>
+							<td colspan="2"><p class="my_td"><a class="btn btn-light btn-block" href="scripts/general_month_performance_report.php">Crear Informe Desempe&ntilde;o General</a></p></td>
 						</tr>
 					</table>
 			</div>

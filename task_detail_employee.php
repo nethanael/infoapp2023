@@ -287,7 +287,7 @@
                             <td>Desempe&ntildeo:</td>  
                             <td>
                                 <?php 
-                                    echo ($performance == 0) ? "Sin evaluar" : $performance."%";
+                                    echo ($performance == null) ? "Sin evaluar" : $performance;
                                 ?>
                             </td>
                         </tr>
