@@ -6,6 +6,7 @@
 	header("Cache-Control: no-cache, must-revalidate");
 	
 	session_start();
+	//echo $_SESSION['ROLE_NAME'];
 
 	if ($_SESSION['LOGIN_INFOAPP'] == FALSE ){header("Location: index.php");}
     else
@@ -38,6 +39,9 @@
 						<thead class="thead-light">
 							<tr>
 								<th colspan="2"><p class="my_td h5">Men&uacute; Principal (Supervisor):</p></th>
+							</tr>
+							<tr>
+								<td colspan="2"><p class="my_td"><a class="btn btn-warning btn-block" href="scripts/change_role.php">Cambiar Rol</a></p></td>
 							</tr>
 						</thead>
 						<tr>

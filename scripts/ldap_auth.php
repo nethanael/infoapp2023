@@ -19,7 +19,6 @@ $bind = @ldap_bind($ldap, $ldaprdn, $password);
 
 if ($bind) {
 
-
     include '../includes/connection.php';
     $query = "SELECT * FROM `infoapp_users` INNER JOIN `infoapp_roles` 
     ON infoapp_users.role_code=infoapp_roles.role_code WHERE infoapp_users.user='$username'";
@@ -31,7 +30,6 @@ if ($bind) {
     if ($_SESSION['ROLE_NAME'] == "administrator") header("Location: ../home_admin.php");
     if ($_SESSION['ROLE_NAME'] == "supervisor") header("Location: ../home_supervisor.php");
     if ($_SESSION['ROLE_NAME'] == "employee") header("Location: ../home_employee.php");
-
 
     @ldap_close($ldap);
     } else {

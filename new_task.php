@@ -125,8 +125,8 @@
                             <td>*Asignar a:</td>
                             <td>
                                 <?php 
-                                    $query = "SELECT last_name FROM infoapp_users WHERE role_code = 3 AND dept_code = $dept_code"; 
-                                    $query2 = "SELECT user_code FROM infoapp_users WHERE role_code = 3 AND dept_code = $dept_code"; 
+                                    $query = "SELECT last_name FROM infoapp_users WHERE dept_code = $dept_code"; 
+                                    $query2 = "SELECT user_code FROM infoapp_users WHERE dept_code = $dept_code"; 
                                     echo dynamic_select_2(db_1D_query($query), db_1D_query($query2), 'user_1', '', 'some_var');
                                 ?>
                             </td>

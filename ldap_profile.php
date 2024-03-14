@@ -29,7 +29,7 @@
         ldap_sort($ldap,$result,"sn");
         $info = ldap_get_entries($ldap, $result);
 
-        // next for explores de ldap object
+        // next "for" explores de ldap object
 
         /*for ($i=0; $i<$info["count"]; $i++)
         {
@@ -83,6 +83,17 @@
                     <tr>
 						<td class="my_td"><p class="badge badge-secondary" href=""><?php echo $info[0]['telephonenumber'][0]; ?></p></td>
 						<td class="my_td"><p class="badge badge-secondary" href=""><?php echo $info[0]['mobile'][0]; ?></p></td>
+					</tr>
+					<tr>
+							<th class="my_td h5" colspan="2"><?php echo "Datos InfoAPP";?></th>
+						</tr>
+					<tr>
+						<td class="my_td"><p class="badge badge-secondary" href=""><?php echo $_SESSION['USER']; ?></p></td>
+						<td class="my_td"><p class="badge badge-secondary" href=""><?php echo $_SESSION['USER_CODE']; ?></p></td>
+					</tr>
+					<tr>
+						<td class="my_td"><p class="badge badge-secondary" href=""><?php echo $_SESSION['ROLE_NAME']; ?></p></td>
+						<td class="my_td"><p class="badge badge-secondary" href=""><?php echo $_SESSION['ROLE_DESCRIPTION']; ?></p></td>
 					</tr>
 				</table>
 				</div>

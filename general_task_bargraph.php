@@ -24,7 +24,7 @@
     $year = date("y");	
 	$month = date("m");
 
-    $user_codes_1D=db_1D_query("SELECT user_code FROM infoapp_users WHERE dept_code LIKE $dept_code AND role_code LIKE 3");
+    $user_codes_1D=db_1D_query("SELECT user_code FROM infoapp_users WHERE dept_code LIKE $dept_code");
 
     include 'includes/connection.php';  
     $query1 = "SELECT COUNT(*) as total FROM infoapp_tasks WHERE month = '$month' AND year = '$year' AND dept_code LIKE $dept_code";

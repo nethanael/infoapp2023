@@ -9,7 +9,7 @@
     include '../includes/connection.php';
         
     $query = "UPDATE infoapp_tasks set task_report = 0 WHERE task_code LIKE $task_code";
-    echo $query;
+    //echo $query;
     $result = mysqli_query($conn, $query);
     //echo $result;
 ?>
