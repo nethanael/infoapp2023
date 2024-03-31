@@ -41,7 +41,7 @@
 								<th colspan="2"><p class="my_td h5">Men&uacute; Principal (Supervisor):</p></th>
 							</tr>
 							<tr>
-								<td colspan="2"><p class="my_td"><a class="btn btn-warning btn-block" href="scripts/change_role.php">Cambiar Rol</a></p></td>
+								<td colspan="2"><p class="my_td"><a class="btn btn-success btn-block" href="scripts/change_role.php">Cambiar Rol</a></p></td>
 							</tr>
 						</thead>
 						<tr>
@@ -68,13 +68,10 @@
 						<tr>
 						<tr>
 							<td><p class="my_td"><a class="btn btn-light btn-block" href="general_task_bargraph.php">Distribuci&oacute;n de las actividades</a></p></td>
-							<td><p class="my_td"><a class="btn btn-light btn-block" href="">Trabajos pendientes</a></p></td>
+							<td><p class="my_td"><a class="btn btn-light btn-block" href="supervisor_pending_tasks.php">Trabajos pendientes</a></p></td>
 						</tr>
 						<tr>
-							<td><p class="my_td"><a class="btn btn-light btn-block" href="">Conteo Total del Mes</a></p></td>
 							<td><p class="my_td"><a class="btn btn-light btn-block" href="general_month_report.php">Crear Informe Mensual</a></p></td>
-						</tr>
-						<tr>
 							<td colspan="2"><p class="my_td"><a class="btn btn-light btn-block" href="all_system_tasks.php">Actividades Totales del Sistema</a></p></td>
 						</tr>
 						<tr>

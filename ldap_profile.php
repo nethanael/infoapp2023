@@ -11,7 +11,7 @@
     $adServer = "ldap://icetel.ice:3268";
 
     $ldap = ldap_connect($adServer);
-    $username = 'pahida';
+    $username = $_SESSION['USER'];
     $password = $_SESSION['PASS'];
 
     //echo $_SESSION['PASS'];

@@ -1,8 +1,11 @@
 <?php
 
 session_start();
+include '../includes/functions.php';
+debug_to_console("Ldap Start");
 
 //$adServer = "ldap://domaincontroller.mydomain.com";
+//$adServer = "ldap://ldap.forumsys.com:389";
 $adServer = "ldap://icetel.ice:3268";
 
 $ldap = ldap_connect($adServer);
@@ -19,6 +22,8 @@ $bind = @ldap_bind($ldap, $ldaprdn, $password);
 
 if ($bind) {
 
+    debug_to_console("bind: True");
+
     include '../includes/connection.php';
     $query = "SELECT * FROM `infoapp_users` INNER JOIN `infoapp_roles` 
     ON infoapp_users.role_code=infoapp_roles.role_code WHERE infoapp_users.user='$username'";
@@ -34,6 +39,7 @@ if ($bind) {
     @ldap_close($ldap);
     } else {
 
+        debug_to_console("bind: False");
         $_SESSION['LOGIN_ERROR'] = "Clave Incorrecta.";
         $_SESSION['USER_TEMP'] = $user;
         header("Location: ../index.php");

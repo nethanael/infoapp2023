@@ -7,7 +7,7 @@
     $DBpassword = 'yORuvQUOYpxPt0sr'; 
     
     //-> intranet real server
-    //$password = 'deleted;      
+    //$DBpassword = 'doGmaC.833';      
     $myDB = 'infoapp';
 
 ?>

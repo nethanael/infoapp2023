@@ -88,6 +88,13 @@
 
 	</div>
 
-	<?php $_SESSION['NEW_TASK_ERROR'] = '';}?>
+	<?php 
+	
+	$_SESSION['TASK_TITLE_TEMP'] = '';
+	$_SESSION['TASK_DESCRIPTION_TEMP'] = '';
+	$_SESSION['NEW_TASK_ERROR'] = '';
+	
+	}?>
+
 </body>
 </html>
