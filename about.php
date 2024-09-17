@@ -37,9 +37,12 @@
                     <div class="card-body">
                         <p class="card-text">Este es un sistema automatizado para la confecci&oacute;n de 
             informes mensuales y medici&oacute;n del desempe&ntilde;o.</p>
-                    </div>
+                	</div>
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item">Desarrollado por: <b>Ing. Pablo Hidalgo Acu&ntildea</b></li>
+                    </ul>
+					<ul class="list-group list-group-flush">
+                        <li class="list-group-item">Diseñado por: <b>Ing. Pablo Hidalgo, Ing. Esteban Bolaños e Ing. Luis Carlos Durán</b></li>
                     </ul>
                 </div>
 			</div>

@@ -52,7 +52,20 @@
 						<tr>
 							<td><p class="text-right">Contrase&ntilde;a:</p></td>
 							<td><input name="pass" type="password" id="pass" size="10" maxlength="20"></td>
-						</tr>      
+						</tr>  
+						<tr>
+							<td>
+								<p class="text-right">
+									<label for="domain">Dominio:</label>
+								</p>
+							</td>
+							<td>
+								<select name="domain" id="domain">
+									<option value="icetel">icetel</option>
+									<option value="sabana">sabana</option>
+								</select>
+							</td>
+						</tr>     
 						<tr>
 							<td></td>
 							<td><input type="submit" name="Submit" value="Ingresar"></td>
