@@ -43,6 +43,14 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimun-scale=1.0">
 		<link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="css/test_borders.css">
+
+        <!-- jQuery -->
+        <script src="includes/jquery-3.7.1.min.js"></script>
+        <!-- DataTables CSS -->
+        <link rel="stylesheet" href="css/jquery.dataTables.min.css">
+        <!-- DataTables JS -->
+        <script src="includes/jquery.dataTables.min.js"></script>
+
 		<title>Sistema de Informes</title>
 	</head>
 <body>
@@ -52,25 +60,28 @@
 	<?php include 'includes/navBar.php'; ?>
           
 		<div class = "row justify-content-center my_row">
-			<div class = "table-responsive my_scrollable_div">
+			<div class = "table-responsive">
 				<!-- (row_!Centro!) -->
-                <table class="table table-sm table-striped table-hover">
-                    <thead class="thead-dark">
+            
+                <div class = "row justify-content-center my_row">
+			    <div class = "col-12 my_col">
+					<!--(row_!Titulo!)-->
+					<p class="text-center">Actividades Totales Departamento:</p>
+			    </div>
+		    </div>
+
+                <table id="myTable" class="table table-sm table-striped table-hover" style="width:100%">
+                    <thead>
                         <tr>
-                            <th class="my_td" colspan="10">Actividades Totales Departamento:</th>
-                        </tr>
-                        <tr>
-                            <td colspan="10"><small>Haga click en el c&oacutedigo de actividad para ver en detalle.</small></td>
+                            <th><small>Codigo Actividad:</small></th>
+                            <th><small>Titulo:</small></th>
+                            <th><small>Descripcion:</small></th>
+                            <th><small>Responsable:</small></th>
+                            <th><small>Departamento:</small></th>
+                            <th><small>Tipo de Actividad:</small></th>
                         </tr>
                     </thead>
-                    <tr>
-                        <th><small>Codigo Actividad:</small></th>
-                        <th><small>Titulo:</small></th>
-                        <th><small>Descripcion:</small></th>
-                        <th><small>Responsable:</small></th>
-                        <th><small>Departamento:</small></th>
-                        <th><small>Tipo de Actividad:</small></th>
-                    </tr>
+                    <tbody>
                         <?php                                                   //saca todos los valores de la base de datos y
                                                                                 // los hace filas
                             while ($line =  $result->fetch_assoc()) 
@@ -87,7 +98,8 @@
                                         }
                                     echo "</tr>";
                                 }
-                        ?>     
+                        ?>
+                    </tbody>      
                 </table>
             </div>
         <a class="btn btn-info" href="index.php">Volver</a>
@@ -99,5 +111,22 @@
         ?>
 
 	</div>
+
+    <script>
+        $('#myTable').DataTable({
+            paging: true,
+            searching: true,
+            ordering:false,
+            pageLength: 20, // Número de registros por página
+            language: {
+                url: 'https://cdn.datatables.net/plug-ins/1.13.6/i18n/Spanish.json' // Para traducir al español
+            }
+        });
+
+        $(document).ready(function() {
+            $('#myTable').DataTable();
+        });
+    </script>
+
 </body>
 </html>
